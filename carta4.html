@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta de Cumpleaños</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: rgb(34,53,195);
+            background: linear-gradient(0deg, rgba(34,53,195,1) 0%, rgba(253,187,45,1) 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            padding: 20px;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #f1c40f;
+            font-size: 2rem;
+        }
+        p {
+            color: #555;
+            font-size: 1.2rem;
+        }
+        .open-card-btn {
+            background-color: #041c78;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            max-width: 300px;
+        }
+        .open-card-btn:hover {
+            background-color: #d8a61b;
+        }
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            overflow-y: auto; /* Para manejar contenido largo */
+        }
+        .close-btn {
+            float: right;
+            font-size: 20px;
+            color: #aaa;
+            cursor: pointer;
+        }
+        .close-btn:hover {
+            color: #000;
+        }
+        .image-container img {
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+        }
+
+        /* New button style inside the modal */
+        .modal-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            padding-top: 2px;
+        }
+        .modal-button:hover {
+            background-color: #45a049;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+            .open-card-btn {
+                font-size: 1rem;
+                padding: 10px;
+            }
+            .modal-content {
+                padding: 15px;
+                max-width: 90%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            p {
+                font-size: 0.9rem;
+            }
+            .open-card-btn {
+                font-size: 0.9rem;
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¡Estas invitado a mi fiesta!</h1>
+        <p>Haz clic en el botón AZUL para abrir la invitación:</p>
+        <button class="open-card-btn" onclick="openModal()">Abrir invitación</button>
+    </div>
+
+    <!-- Modal -->
+    <div id="pdfModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div class="image-container">
+                <!-- Imagen desde la carpeta del proyecto -->
+                <img src="in3.png" alt="cumpleaños">
+            </div>
+            
+            <a class="modal-button" href="https://maps.app.goo.gl/r4JSCfVdBTGv2MCs6">No sabes llegar ?? presiona aqui</a>
+        </div>
+    </div>
+
+    <script>
+        // Función para abrir el modal
+        function openModal() {
+            document.getElementById('pdfModal').style.display = 'flex';
+        }
+
+        // Función para cerrar el modal
+        function closeModal() {
+            document.getElementById('pdfModal').style.display = 'none';
+        }
+
+        // Cerrar el modal si se hace clic fuera del contenido
+        window.onclick = function(event) {
+            var modal = document.getElementById('pdfModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
